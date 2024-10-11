@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://blood_particles.gd" id="2_1c21a"]
 
 [node name="blood_particles" type="CPUParticles2D"]
+z_index = -1
 amount = 15
 lifetime = 0.2
 explosiveness = 1.0
