@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbour1dws7v76"]
+
+[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_y5ksx"]
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_y5ksx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+text = "PLAY"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
