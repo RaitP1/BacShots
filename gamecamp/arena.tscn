@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://h1svao008fpk"]
+[gd_scene load_steps=3 format=3 uid="uid://bteg7184clhkv"]
 
 [ext_resource type="Texture2D" uid="uid://cjx6gr1qillmj" path="res://Arena art/kenney_top-down-shooter/PNG/Tiles/tile_42.png" id="1_17svb"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="2_cocnn"]
+[ext_resource type="PackedScene" uid="uid://etu5bw682f3" path="res://player.tscn" id="2_cocnn"]
 
 [node name="Arena" type="Node2D"]
 
@@ -528,5 +528,6 @@ texture = ExtResource("1_17svb")
 
 [node name="Player" parent="." instance=ExtResource("2_cocnn")]
 position = Vector2(558, 290)
+scale = Vector2(2, 2)
 
 [node name="1_stage_boss" type="Node2D" parent="."]
