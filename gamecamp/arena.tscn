@@ -1,3 +1,526 @@
-[gd_scene format=3 uid="uid://de0ymsfa0bfap"]
+[gd_scene load_steps=2 format=3 uid="uid://de0ymsfa0bfap"]
+
+[ext_resource type="Texture2D" uid="uid://cjx6gr1qillmj" path="res://Arena art/kenney_top-down-shooter/PNG/Tiles/tile_42.png" id="1_17svb"]
 
 [node name="Arena" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(95, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+position = Vector2(190, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+position = Vector2(285, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background"]
+position = Vector2(380, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background"]
+position = Vector2(475, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background"]
+position = Vector2(570, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background"]
+position = Vector2(665, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background"]
+position = Vector2(760, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background"]
+position = Vector2(855, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background"]
+position = Vector2(950, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background"]
+position = Vector2(1045, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background"]
+position = Vector2(1140, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background"]
+position = Vector2(0, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background"]
+position = Vector2(95, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background"]
+position = Vector2(190, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background"]
+position = Vector2(285, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background"]
+position = Vector2(380, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Background"]
+position = Vector2(475, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background"]
+position = Vector2(570, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Background"]
+position = Vector2(665, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background"]
+position = Vector2(760, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background"]
+position = Vector2(855, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background"]
+position = Vector2(950, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background"]
+position = Vector2(1045, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background"]
+position = Vector2(1140, 95)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background"]
+position = Vector2(0, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background"]
+position = Vector2(95, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D29" type="Sprite2D" parent="Background"]
+position = Vector2(190, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Background"]
+position = Vector2(285, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Background"]
+position = Vector2(380, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Background"]
+position = Vector2(475, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Background"]
+position = Vector2(570, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Background"]
+position = Vector2(665, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Background"]
+position = Vector2(760, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Background"]
+position = Vector2(855, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Background"]
+position = Vector2(950, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Background"]
+position = Vector2(1045, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D39" type="Sprite2D" parent="Background"]
+position = Vector2(1140, 190)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Background"]
+position = Vector2(0, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Background"]
+position = Vector2(95, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Background"]
+position = Vector2(190, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Background"]
+position = Vector2(285, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D44" type="Sprite2D" parent="Background"]
+position = Vector2(380, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D45" type="Sprite2D" parent="Background"]
+position = Vector2(475, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D46" type="Sprite2D" parent="Background"]
+position = Vector2(570, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D47" type="Sprite2D" parent="Background"]
+position = Vector2(665, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D48" type="Sprite2D" parent="Background"]
+position = Vector2(760, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D49" type="Sprite2D" parent="Background"]
+position = Vector2(855, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D50" type="Sprite2D" parent="Background"]
+position = Vector2(950, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D51" type="Sprite2D" parent="Background"]
+position = Vector2(1045, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D52" type="Sprite2D" parent="Background"]
+position = Vector2(1140, 285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D53" type="Sprite2D" parent="Background"]
+position = Vector2(0, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D54" type="Sprite2D" parent="Background"]
+position = Vector2(95, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D55" type="Sprite2D" parent="Background"]
+position = Vector2(190, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D56" type="Sprite2D" parent="Background"]
+position = Vector2(285, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D57" type="Sprite2D" parent="Background"]
+position = Vector2(380, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D58" type="Sprite2D" parent="Background"]
+position = Vector2(475, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D59" type="Sprite2D" parent="Background"]
+position = Vector2(570, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D60" type="Sprite2D" parent="Background"]
+position = Vector2(665, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D61" type="Sprite2D" parent="Background"]
+position = Vector2(760, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D62" type="Sprite2D" parent="Background"]
+position = Vector2(855, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D63" type="Sprite2D" parent="Background"]
+position = Vector2(950, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D64" type="Sprite2D" parent="Background"]
+position = Vector2(1045, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D65" type="Sprite2D" parent="Background"]
+position = Vector2(1140, 380)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D66" type="Sprite2D" parent="Background"]
+position = Vector2(0, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D67" type="Sprite2D" parent="Background"]
+position = Vector2(95, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D68" type="Sprite2D" parent="Background"]
+position = Vector2(190, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D69" type="Sprite2D" parent="Background"]
+position = Vector2(285, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D70" type="Sprite2D" parent="Background"]
+position = Vector2(380, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D71" type="Sprite2D" parent="Background"]
+position = Vector2(475, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D72" type="Sprite2D" parent="Background"]
+position = Vector2(570, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D73" type="Sprite2D" parent="Background"]
+position = Vector2(665, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D74" type="Sprite2D" parent="Background"]
+position = Vector2(760, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D75" type="Sprite2D" parent="Background"]
+position = Vector2(855, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D76" type="Sprite2D" parent="Background"]
+position = Vector2(950, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D77" type="Sprite2D" parent="Background"]
+position = Vector2(1045, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D78" type="Sprite2D" parent="Background"]
+position = Vector2(1140, 475)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D79" type="Sprite2D" parent="Background"]
+position = Vector2(0, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D80" type="Sprite2D" parent="Background"]
+position = Vector2(95, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D81" type="Sprite2D" parent="Background"]
+position = Vector2(190, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D82" type="Sprite2D" parent="Background"]
+position = Vector2(285, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D83" type="Sprite2D" parent="Background"]
+position = Vector2(380, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D84" type="Sprite2D" parent="Background"]
+position = Vector2(475, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D85" type="Sprite2D" parent="Background"]
+position = Vector2(570, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D86" type="Sprite2D" parent="Background"]
+position = Vector2(665, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D87" type="Sprite2D" parent="Background"]
+position = Vector2(760, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D88" type="Sprite2D" parent="Background"]
+position = Vector2(855, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D89" type="Sprite2D" parent="Background"]
+position = Vector2(950, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D90" type="Sprite2D" parent="Background"]
+position = Vector2(1045, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D91" type="Sprite2D" parent="Background"]
+position = Vector2(1140, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D92" type="Sprite2D" parent="Background"]
+position = Vector2(0, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D93" type="Sprite2D" parent="Background"]
+position = Vector2(95, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D94" type="Sprite2D" parent="Background"]
+position = Vector2(190, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D95" type="Sprite2D" parent="Background"]
+position = Vector2(285, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D96" type="Sprite2D" parent="Background"]
+position = Vector2(380, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D97" type="Sprite2D" parent="Background"]
+position = Vector2(475, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D98" type="Sprite2D" parent="Background"]
+position = Vector2(570, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D99" type="Sprite2D" parent="Background"]
+position = Vector2(665, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D100" type="Sprite2D" parent="Background"]
+position = Vector2(760, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D101" type="Sprite2D" parent="Background"]
+position = Vector2(855, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D102" type="Sprite2D" parent="Background"]
+position = Vector2(950, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D103" type="Sprite2D" parent="Background"]
+position = Vector2(1045, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
+
+[node name="Sprite2D104" type="Sprite2D" parent="Background"]
+position = Vector2(1140, 665)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_17svb")
