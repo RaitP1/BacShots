@@ -14,6 +14,7 @@ func _process(delta):
 		else:
 			velocity = Vector2(0, 0)
 			
+			
 	if hp <= 0:
 		if Global.Camera != null:
 			Global.Camera.screen.shake(30, 0.1)
