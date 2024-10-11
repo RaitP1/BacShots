@@ -1,5 +1,3 @@
-extends Node
-
 extends Sprite2D
 
 var speed = 75
