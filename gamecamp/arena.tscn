@@ -524,3 +524,6 @@ texture = ExtResource("1_17svb")
 position = Vector2(1140, 665)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_17svb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
