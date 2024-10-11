@@ -9,7 +9,7 @@ func _process(delta):
 	look_at(Global.player.global_position)
 	
 	if Global.player != null:
-		if Global.gameOff == False:
+		if Global.gameOff == false:
 			velocity = global_position.direction_to(Global.player.global_position)
 		else:
 			velocity = Vector2(0, 0)
