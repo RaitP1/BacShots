@@ -18,4 +18,9 @@ script = ExtResource("2_d6ed1")
 position = Vector2(1, -0.25)
 shape = SubResource("RectangleShape2D_cwqgg")
 
+[node name="hit_indicator" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="hit_indicator" to="." method="_on_hit_indicator_timeout"]
