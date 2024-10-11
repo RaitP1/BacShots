@@ -8,6 +8,13 @@
 
 [node name="EnemyMob" parent="." instance=ExtResource("3_4iuug")]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
+position = Vector2(575, 324)
+
+[node name="screen_shake_timer" type="Timer" parent="Camera2D"]
+one_shot = true
+
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
