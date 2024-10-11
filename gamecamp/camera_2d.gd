@@ -9,7 +9,7 @@ func _ready():
 func _exit_tree():
 	Global.Camera = null
 
-func _process(delta):
+func _process(_delta):
 	zoom = lerp(zoom, Vector2(1, 1), 0.3)
 	
 	if screen_shake_start == true:

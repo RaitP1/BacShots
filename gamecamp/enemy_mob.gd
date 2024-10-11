@@ -5,7 +5,7 @@ var velocity = Vector2()
 var hp = 3
 var blood_particles = preload("res://blood_particles.tscn")
 
-func _process(delta):
+func _process(_delta):
 	look_at(Global.player.global_position)
 	
 	if Global.player != null:
@@ -14,15 +14,16 @@ func _process(delta):
 		else:
 			velocity = Vector2(0, 0)
 			
+	global_position += velocity * speed * _delta
 			
 	if hp <= 0:
 		if Global.Camera != null:
-			Global.Camera.screen.shake(30, 0.1)
+			Global.Camera.screen_shake(30, 0.1)
 			
 			Global.points += 10  # 10 points for killing enemy
-			if Global.node_creation.parent != null:
+			if Global.node_creation_parent != null:
 				var blood_paricles_instance = Global.instance_node(blood_particles, global_position, Global.node_creation_parent)
-				blood_particles.instance.rotation = velocity.angle()
+				blood_paricles_instance.rotation = velocity.angle()
 			queue_free()
 
 
