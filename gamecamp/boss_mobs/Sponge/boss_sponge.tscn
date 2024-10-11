@@ -1,15 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://sw1hx4ar2jp3"]
+[gd_scene load_steps=8 format=3 uid="uid://sw1hx4ar2jp3"]
 
-[ext_resource type="Texture2D" uid="uid://cngs7bdr1b4vu" path="res://Arena art/kenney_top-down-shooter/PNG/Man Blue/manBlue_gun.png" id="1_xbopm"]
+[ext_resource type="Texture2D" uid="uid://bwhthg0i10skw" path="res://boss_mobs/Sponge/sponge.png" id="1_h4tng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt4q7"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u3wb"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7bu7"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s8ii"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxxqv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt4q7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u3wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7bu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s8ii")
+}],
+"loop": true,
+"name": &"move-up",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0jr6"]
-size = Vector2(33, 44.5)
+size = Vector2(24, 13)
 
-[node name="Boss_sponge" type="Sprite2D" groups=["Boss"]]
-texture = ExtResource("1_xbopm")
+[node name="Boss_sponge" type="AnimatedSprite2D" groups=["Boss"]]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qxxqv")
+animation = &"move-up"
+frame_progress = 0.300365
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["Boss"]]
-position = Vector2(-6, 0.25)
+visible = false
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_s0jr6")

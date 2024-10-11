@@ -1,4 +1,5 @@
 extends Sprite2D
+extends AnimatedSprite2D
 
 var speed = 300
 var velocity = Vector2()
