@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://des8e14yidwhp"]
+
+[ext_resource type="Texture2D" uid="uid://1bhpuy6226m0" path="res://Arena art/kenney_top-down-shooter/PNG/Robot 1/robot1_hold.png" id="1_7bedu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwqgg"]
+size = Vector2(27, 40.5)
+
+[node name="EnemyMob" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_7bedu")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, -0.25)
+shape = SubResource("RectangleShape2D_cwqgg")
