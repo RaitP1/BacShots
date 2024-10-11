@@ -17,7 +17,7 @@ func _process(_delta):
 			
 	if hp <= 0:
 		if Global.Camera != null:
-			Global.Camera.screen_shake(30, 0.1)
+			# Global.Camera.screen_shake(30, 0.1)
 			Global.points += 10  # 10 points for killing enemy
 			queue_free()
 
