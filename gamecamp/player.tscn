@@ -1,7 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://etu5bw682f3"]
+[gd_scene load_steps=4 format=3 uid="uid://etu5bw682f3"]
 
 [ext_resource type="Texture2D" uid="uid://bhxcv832at1l7" path="res://Icon28.png" id="1_6fkxp"]
+[ext_resource type="Script" path="res://player.gd" id="2_2qioe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrrxn"]
+size = Vector2(25.25, 24.375)
 
 [node name="Player" type="Sprite2D"]
 texture_filter = 1
+scale = Vector2(8, 8)
 texture = ExtResource("1_6fkxp")
+script = ExtResource("2_2qioe")
+
+[node name="Reload" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.625, -0.0625)
+shape = SubResource("RectangleShape2D_mrrxn")
+
+[node name="Aimspot" type="Area2D" parent="."]
+
+[connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

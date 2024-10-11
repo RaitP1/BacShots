@@ -1,5 +1,6 @@
 extends Sprite2D
 
+
 var speed = 75
 var velocity = Vector2()
 var hp = 3
