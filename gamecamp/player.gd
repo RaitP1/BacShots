@@ -18,3 +18,36 @@ func _ready():
 func _exit_tree():
 	Global.player = null
 	
+func _process(delta):
+	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
+	
+	velocity = velocity.normalized()
+	
+	global_position.x = clamp(global_position.x, 20, 620)	
+	global_position.y = clamp(global_position.y, 20, 340)
+	
+	if is_dead == false:
+		global_position += speed * velocity * delta
+
+	if Input.is_action_pressed("click") and Global.node_creation_parent != null and can_shoot == true and is_dead == false:
+		look_at(get_global_mouse_position())
+		Global.instance_node(bullet, aimspot.global_position, Global.node_creation_parent)
+		$Reload.start()
+		can_shoot = false
+	
+	
+
+
+func _on_reload_timeout():
+	can_shoot = true
+	
+
+
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("Enemy"):
+		is_dead = true
+		visible = false
+		Global.gameOff = true
+		await (get_tree().create_timer(1.0).timeout)
+		get_tree().reload_current_scene()
