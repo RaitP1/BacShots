@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://sw1hx4ar2jp3"]
+
+[ext_resource type="Texture2D" uid="uid://cngs7bdr1b4vu" path="res://Arena art/kenney_top-down-shooter/PNG/Man Blue/manBlue_gun.png" id="1_xbopm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0jr6"]
+size = Vector2(33, 44.5)
+
+[node name="Boss_sponge" type="Sprite2D" groups=["Boss"]]
+texture = ExtResource("1_xbopm")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["Boss"]]
+position = Vector2(-6, 0.25)
+shape = SubResource("RectangleShape2D_s0jr6")
