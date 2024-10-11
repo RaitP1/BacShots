@@ -1,3 +1,5 @@
+extends Node
+
 extends Sprite2D
 
 var speed = 75
@@ -9,7 +11,7 @@ func _process(delta):
 	look_at(Global.player.global_position)
 	
 	if Global.player != null:
-		if Global.gameOff == false:
+		if Global.gameOff == False:
 			velocity = global_position.direction_to(Global.player.global_position)
 		else:
 			velocity = Vector2(0, 0)
