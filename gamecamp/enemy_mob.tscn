@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://des8e14yidwhp"]
+[gd_scene load_steps=3 format=3 uid="uid://mr1kkj32piuv"]
 
-[ext_resource type="Texture2D" uid="uid://1bhpuy6226m0" path="res://Arena art/kenney_top-down-shooter/PNG/Robot 1/robot1_hold.png" id="1_7bedu"]
+[ext_resource type="Texture2D" uid="uid://cdljc1gt84xfc" path="res://Arena art/kenney_top-down-shooter/PNG/Hitman 1/hitman1_silencer.png" id="1_kaudc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwqgg"]
-size = Vector2(27, 40.5)
+size = Vector2(50, 43.25)
 
 [node name="EnemyMob" type="Sprite2D"]
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("1_7bedu")
+texture = ExtResource("1_kaudc")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(1, -0.25)
+position = Vector2(-0.5, -0.375)
 shape = SubResource("RectangleShape2D_cwqgg")
