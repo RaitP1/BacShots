@@ -26,4 +26,8 @@ func _process(delta):
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	if area.is_in_group("enemy_damager"):
+		modulate = Color("ff0056")
+		velocity = -velocity * 6
+		hp -= 1
+		area.get_parent().queue_free()
