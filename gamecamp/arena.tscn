@@ -528,4 +528,6 @@ texture = ExtResource("1_17svb")
 
 [node name="Player" parent="." instance=ExtResource("2_cocnn")]
 position = Vector2(558, 290)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
+
+[node name="1_stage_boss" type="Node2D" parent="."]
