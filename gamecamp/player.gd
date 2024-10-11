@@ -32,7 +32,7 @@ func _process(delta):
 
 	if Input.is_action_pressed("click") and Global.node_creation_parent != null and can_shoot == true and is_dead == false:
 		look_at(get_global_mouse_position())
-		Global.instance_node(bullet, aimspot.global_position, Global.node_creation_parent)
+		Global.instance_node(bullet, aimSpot.global_position, Global.node_creation_parent)
 		$Reload.start()
 		can_shoot = false
 	
