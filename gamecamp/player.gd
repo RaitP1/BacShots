@@ -1,18 +1,24 @@
 extends Sprite2D
 
-var speed = 300
+#uses Global.speed instead
+#var speed = 600
 var velocity = Vector2()
+var hp = 3
 
 var bullet = preload("res://bullet.tscn")
 
-var can_shoot = true
+#use global script var instead
+#var can_shoot = true
 var is_dead = false
 
+@onready var my_timer: Node = get_node("Reload")
 
 @onready var aimSpot = $Aimspot
 
 func _ready():
 	# temporary next line
+	my_timer.wait_time = Global.reloadSpeed
+	my_timer.start()
 	Global.node_creation_parent = $".."
 	Global.player = self
 	Global.gameOff = false
@@ -28,28 +34,29 @@ func _process(delta):
 	
 	global_position.x = clamp(global_position.x, 20, 1152)	
 	global_position.y = clamp(global_position.y, 20, 648)
-	
-	if is_dead == false:
-		global_position += speed * velocity * delta
+	my_timer.wait_time = Global.reloadSpeed
 
-	if Input.is_action_pressed("click") and Global.node_creation_parent != null and can_shoot == true and is_dead == false:
+	if is_dead == false:
+		global_position += Global.playerSpeed * velocity * delta
+
+	if Input.is_action_pressed("click") and Global.node_creation_parent != null and Global.canShoot == true and is_dead == false:
 		look_at(get_global_mouse_position())
 		Global.instance_node(bullet, aimSpot.global_position, Global.node_creation_parent)
 		$Reload.start()
-		can_shoot = false
-	
-	
+		Global.canShoot = false
 
 
 func _on_reload_timeout():
-	can_shoot = true
+	Global.canShoot = true
 	
 
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Enemy"):
-		is_dead = true
-		visible = false
-		Global.gameOff = true
-		await (get_tree().create_timer(1.0).timeout)
-		get_tree().reload_current_scene()
+		hp -= 1
+		if hp == 0:
+			is_dead = true
+			visible = false
+			Global.gameOff = true
+			await (get_tree().create_timer(1.0).timeout)
+			get_tree().reload_current_scene()

@@ -12,10 +12,15 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_7bedu")
 script = ExtResource("2_d6ed1")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1, -0.25)
 shape = SubResource("RectangleShape2D_cwqgg")
 
+[node name="hit_indicator" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="hit_indicator" to="." method="_on_hit_indicator_timeout"]

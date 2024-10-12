@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://etu5bw682f3"]
+[gd_scene load_steps=5 format=3 uid="uid://etu5bw682f3"]
 
 [ext_resource type="Texture2D" uid="uid://bhxcv832at1l7" path="res://Icon28.png" id="1_6fkxp"]
 [ext_resource type="Script" path="res://player.gd" id="2_2qioe"]
+
+[sub_resource type="GDScript" id="GDScript_4cge7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrrxn"]
 size = Vector2(25.25, 24.375)
@@ -15,8 +17,9 @@ script = ExtResource("2_2qioe")
 [node name="Reload" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+script = SubResource("GDScript_4cge7")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.625, -0.0625)
