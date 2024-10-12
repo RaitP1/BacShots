@@ -2,6 +2,7 @@ extends Sprite2D
 
 var speed = 300
 var velocity = Vector2()
+var hp = 3
 
 var bullet = preload("res://bullet.tscn")
 
@@ -37,8 +38,6 @@ func _process(delta):
 		Global.instance_node(bullet, aimSpot.global_position, Global.node_creation_parent)
 		$Reload.start()
 		can_shoot = false
-	
-	
 
 
 func _on_reload_timeout():
@@ -48,8 +47,10 @@ func _on_reload_timeout():
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Enemy"):
-		is_dead = true
-		visible = false
-		Global.gameOff = true
-		await (get_tree().create_timer(1.0).timeout)
-		get_tree().reload_current_scene()
+		hp -= 1
+		if hp == 0:
+			is_dead = true
+			visible = false
+			Global.gameOff = true
+			await (get_tree().create_timer(1.0).timeout)
+			get_tree().reload_current_scene()
