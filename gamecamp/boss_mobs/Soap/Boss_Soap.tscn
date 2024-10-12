@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://dbhogmumb8dq5"]
+[gd_scene load_steps=34 format=3 uid="uid://dbhogmumb8dq5"]
 
 [ext_resource type="Texture2D" uid="uid://dkwpxvrecdat4" path="res://boss_mobs/Soap/soap.png" id="1_ox8so"]
+[ext_resource type="Script" path="res://boss_mobs/Soap/Boss_Soap_Script.gd" id="2_02gbn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wiga"]
 atlas = ExtResource("1_ox8so")
@@ -241,9 +242,17 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qweh3")
 animation = &"lightning"
 frame_progress = 0.886101
+script = ExtResource("2_02gbn")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Boss"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 visible = false
 shape = SubResource("CircleShape2D_pirrg")
+
+[node name="hit_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]

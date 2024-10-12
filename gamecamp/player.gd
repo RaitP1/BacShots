@@ -12,6 +12,7 @@ var is_dead = false
 @onready var anim: AnimatedSprite2D = $"."
 
 @onready var aimSpot = $Aimspot
+@onready var path_follow = %PathFollow2D
 
 func _ready():	
 	anim.play("idle")
@@ -52,7 +53,14 @@ func _process(delta):
 		$Reload.start()
 		can_shoot = false
 
-
+	if Global.boss_alive4 == true:
+		velocity.x = int(Input.is_action_pressed("move_left")) - int(Input.is_action_pressed("move_right"))
+		velocity.y = int(Input.is_action_pressed("move_up")) - int(Input.is_action_pressed("move_down"))
+		Global.playerSpeed = 500
+		Global.canShoot = false
+		await get_tree().create_timer(10.0).timeout
+		Global.canShoot = true
+		
 func _on_reload_timeout():
 	can_shoot = true
 
