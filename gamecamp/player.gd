@@ -41,9 +41,7 @@ func _process(delta):
 	
 	
 	velocity = velocity.normalized()
-	
-	global_position.x = clamp(global_position.x, 20, 1152)	
-	global_position.y = clamp(global_position.y, 20, 648)
+
 	
 	if is_dead == false:
 		global_position += speed * velocity * delta

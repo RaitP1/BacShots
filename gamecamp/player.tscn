@@ -165,7 +165,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrrxn"]
-size = Vector2(25.25, 24.375)
+size = Vector2(13.5, 10)
 
 [node name="Player" type="AnimatedSprite2D"]
 texture_filter = 1
@@ -180,9 +180,10 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player"]]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0.625, -0.0625)
+position = Vector2(-1.25, -1.5)
 shape = SubResource("RectangleShape2D_mrrxn")
 
 [node name="Aimspot" type="Area2D" parent="."]

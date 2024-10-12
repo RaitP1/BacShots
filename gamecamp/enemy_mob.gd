@@ -26,13 +26,13 @@ func _process(delta):
 			#here question mark
 			var qChance: int = randi_range(1, 1)
 			if qChance == 1:
-				var result: int = randi_range(1, 6)
+				var result: int = randi_range(1, 7)
 				if result == 1:
 					# Speed up
 					Global.playerSpeed += 50 
 				elif result == 2:
 					#Double damage
-					dmg *= 2
+					dmg *= 5
 				elif result == 3:
 					#2x fire rate
 					Global.reloadSpeed /= 2
@@ -47,7 +47,10 @@ func _process(delta):
 					pass
 				elif result == 6:
 					#Enemy speed increased by 50
-					Global.enemySpeed += 50
+					Global.enemySpeed += 1
+				elif result == 7:
+					#Player speed decreased by 50
+					Global.playerSpeed -= 1
 			die()
 
 var dmg: int = 1

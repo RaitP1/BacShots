@@ -16,19 +16,21 @@ func spawn_soap_boss():
 	add_child(soap_boss)
 
 func _on_enemy_spawner_timer_timeout() -> void:
+	print($Enemy_spawner_timer.wait_time)
 	if rounds == 40:
 		Global.boss_alive4 = true
 		spawn_soap_boss()
 	var i = 0
-	rounds += 1
-	if rounds == 0:
-		while i < 5:
+	if rounds == 1:
+		while i < 5: 
 			i += 1
 			spawn_mob()
-	if 1 <= rounds and rounds < 11 and Global.boss_alive4 == false:
+	rounds += 1
+	if 2 <= rounds and rounds < 11 and Global.boss_alive4 == false:
 		while i < (rounds * 4 + 5):
 			i += 1
 			spawn_mob()
+		$Enemy_spawner_timer.wait_time -= $Enemy_spawner_timer.wait_time * 0.05
 	if rounds > 10 and Global.boss_alive4 == false:
 		while i < (rounds * 4 + 5):
 			i += 1
