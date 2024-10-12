@@ -1,5 +1,4 @@
 extends Node2D
-
 var mob_count = 0
 var rounds = Global.rounds
 var soap_boss_packed = preload("res://boss_mobs/Soap/Boss_Soap.tscn")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://5hm3pfye5fjc"]
 
 [ext_resource type="Script" path="res://audio_video/video.gd" id="1_n7gok"]
-[ext_resource type="VideoStream" uid="uid://bfsvgi8men54d" path="res://audio_video/game_intro.ogv" id="2_urj6f"]
+[ext_resource type="VideoStream" path="res://audio_video/game_intro.ogv" id="2_urj6f"]
 
 [node name="video" type="Node2D"]
 script = ExtResource("1_n7gok")
