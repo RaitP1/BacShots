@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://arena.gd" id="1_8rpgm"]
 [ext_resource type="Texture2D" uid="uid://cjx6gr1qillmj" path="res://Arena art/kenney_top-down-shooter/PNG/Tiles/tile_42.png" id="1_17svb"]
 [ext_resource type="PackedScene" uid="uid://etu5bw682f3" path="res://player.tscn" id="2_cocnn"]
-[ext_resource type="PackedScene" uid="uid://des8e14yidwhp" path="res://enemy_mob.tscn" id="3_4iuug"]
 
 [sub_resource type="GDScript" id="GDScript_cmmai"]
 script/source = "extends Camera2D
@@ -18,11 +17,14 @@ func _exit_tree():
 	Global.Camera = null
 "
 
+[sub_resource type="Curve2D" id="Curve2D_a5sw6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -53, -76, 0, 0, 0, 0, 1184, -92, 0, 0, 0, 0, 1181, 689, 0, 0, 0, 0, -61, 717, 0, 0, 0, 0, -53, -76)
+}
+point_count = 5
+
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_8rpgm")
-
-[node name="EnemyMob" parent="." instance=ExtResource("3_4iuug")]
-z_index = 1
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -555,9 +557,6 @@ position = Vector2(4.76837e-06, 4.76837e-06)
 scale = Vector2(0.333333, 0.333333)
 script = SubResource("GDScript_cmmai")
 
-[node name="screen_shake_timer" type="Timer" parent="Player/Camera2D"]
-one_shot = true
-
 [node name="Enemy_spawner_timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
@@ -565,4 +564,10 @@ autostart = true
 [node name="Difficulty_timer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="Player/Camera2D/screen_shake_timer" to="Player/Camera2D" method="_on_screen_shake_timer_timeout"]
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_a5sw6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-53, -76)
+rotation = -0.0129338
