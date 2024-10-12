@@ -16,7 +16,7 @@ script = ExtResource("2_2qioe")
 wait_time = 0.2
 one_shot = true
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.625, -0.0625)
