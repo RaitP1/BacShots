@@ -28,6 +28,12 @@ func _ready():
 	spawn_mob()
 	spawn_mob()
 	spawn_mob()
+	spawn_mob()
+	spawn_mob()
+	spawn_mob()
+	spawn_mob()
+	spawn_mob()
+	spawn_mob()
 
 func spawn_mob():
 	var new_mob = preload("res://enemy_mob.tscn").instantiate()
