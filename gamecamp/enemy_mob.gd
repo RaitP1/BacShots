@@ -4,7 +4,7 @@ var speed = 75
 var velocity = Vector2()
 var hp = 3
 
-func _process(_delta):
+func _process(delta):
 	look_at(Global.player.global_position)
 	
 	if Global.player != null:
@@ -13,11 +13,10 @@ func _process(_delta):
 		else:
 			velocity = Vector2(0, 0)
 			
-	global_position += velocity * speed * _delta
+	global_position += velocity * speed * delta
 			
 	if hp <= 0:
 		if Global.Camera != null:
-			# Global.Camera.screen_shake(30, 0.1)
 			Global.points += 10  # 10 points for killing enemy
 			queue_free()
 
