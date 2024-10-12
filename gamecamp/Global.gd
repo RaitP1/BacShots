@@ -7,6 +7,10 @@ var points = 0
 var Camera = null
 var highscore = 0
 var gameOff = false
+var playerSpeed: int = 500
+var enemySpeed: int = 200
+var canShoot: bool = true
+var reloadSpeed: float = 0.5
 
 func instance_node(node, location, parent):
 	var node_instance = node.instantiate()
