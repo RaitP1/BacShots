@@ -11,6 +11,7 @@ var is_dead = false
 
 
 @onready var aimSpot = $Aimspot
+@onready var path_follow = $Path2D/PathFollow2D
 
 func _ready():
 	# temporary next line
@@ -32,7 +33,6 @@ func _process(delta):
 	
 	if is_dead == false:
 		global_position += speed * velocity * delta
-
 	if Input.is_action_pressed("click") and Global.node_creation_parent != null and can_shoot == true and is_dead == false:
 		look_at(get_global_mouse_position())
 		Global.instance_node(bullet, aimSpot.global_position, Global.node_creation_parent)
