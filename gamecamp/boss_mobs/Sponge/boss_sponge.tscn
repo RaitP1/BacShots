@@ -1,6 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://sw1hx4ar2jp3"]
+[gd_scene load_steps=23 format=3 uid="uid://sw1hx4ar2jp3"]
 
 [ext_resource type="Texture2D" uid="uid://bwhthg0i10skw" path="res://boss_mobs/Sponge/sponge.png" id="1_h4tng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx1fy"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdilw"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r46vf"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2pqv"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc4el"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvs4l"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvaoc"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u58kd"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg13m"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koe2p"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xt4q7"]
 atlas = ExtResource("1_h4tng")
@@ -18,8 +58,68 @@ region = Rect2(96, 32, 32, 32)
 atlas = ExtResource("1_h4tng")
 region = Rect2(128, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_csd0j"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2q5b"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsldj"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a5xn"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlavv"]
+atlas = ExtResource("1_h4tng")
+region = Rect2(128, 64, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qxxqv"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx1fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdilw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r46vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc4el")
+}],
+"loop": true,
+"name": &"down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvs4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvaoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u58kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg13m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koe2p")
+}],
+"loop": true,
+"name": &"left",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xt4q7")
@@ -35,7 +135,27 @@ animations = [{
 }],
 "loop": true,
 "name": &"move-up",
-"speed": 5.0
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csd0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2q5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsldj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a5xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlavv")
+}],
+"loop": true,
+"name": &"right",
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0jr6"]
@@ -43,9 +163,11 @@ size = Vector2(24, 13)
 
 [node name="Boss_sponge" type="AnimatedSprite2D" groups=["Boss"]]
 texture_filter = 1
+position = Vector2(0.499999, 5.5)
+scale = Vector2(1.28125, 1.34375)
 sprite_frames = SubResource("SpriteFrames_qxxqv")
-animation = &"move-up"
-frame_progress = 0.300365
+animation = &"right"
+frame_progress = 0.783288
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
