@@ -571,3 +571,5 @@ curve = SubResource("Curve2D_a5sw6")
 unique_name_in_owner = true
 position = Vector2(-53, -76)
 rotation = -0.0129338
+
+[connection signal="timeout" from="Enemy_spawner_timer" to="." method="_on_enemy_spawner_timer_timeout"]

@@ -55,11 +55,12 @@ func _process(delta):
 
 func _on_reload_timeout():
 	can_shoot = true
-	
 
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Enemy"):
+		modulate = Color("ff0056")
+		$hit_timer.start()
 		hp -= 1
 		if hp == 0:
 			is_dead = true
@@ -67,3 +68,7 @@ func _on_hitbox_area_entered(area):
 			Global.gameOff = true
 			await (get_tree().create_timer(1.0).timeout)
 			get_tree().reload_current_scene()
+
+
+func _on_hit_timer_timeout() -> void:
+	modulate = Color("ffffff")
