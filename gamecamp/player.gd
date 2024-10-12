@@ -43,7 +43,7 @@ func _process(delta):
 	velocity = velocity.normalized()
 	
 	global_position.x = clamp(global_position.x, 20, 3232)	
-	global_position.y = clamp(global_position.y, 20, 1632)
+	global_position.y = clamp(global_position.y, 20, 1664)
 	
 	if is_dead == false:
 		global_position += speed * velocity * delta
@@ -52,7 +52,11 @@ func _process(delta):
 		Global.instance_node(bullet, aimSpot.global_position, Global.node_creation_parent)
 		$Reload.start()
 		can_shoot = false
-
+	if Global.boss_alive1 == true:
+		velocity.x = int(Input.is_action_pressed("move_left")) - int(Input.is_action_pressed("move_right"))
+	if Global.boss_alive2 == true:
+		velocity.x = int(Input.is_action_pressed("move_left")) - int(Input.is_action_pressed("move_right"))
+		velocity.y = int(Input.is_action_pressed("move_up")) - int(Input.is_action_pressed("move_down"))
 	if Global.boss_alive4 == true:
 		velocity.x = int(Input.is_action_pressed("move_left")) - int(Input.is_action_pressed("move_right"))
 		velocity.y = int(Input.is_action_pressed("move_up")) - int(Input.is_action_pressed("move_down"))
@@ -70,7 +74,17 @@ func _on_hitbox_area_entered(area):
 		modulate = Color("ff0056")
 		$hit_timer.start()
 		hp -= 1
-		if hp == 0:
+		if hp <= 0:
+			is_dead = true
+			visible = false
+			Global.gameOff = true
+			await (get_tree().create_timer(1.0).timeout)
+			get_tree().reload_current_scene()
+	elif area.is_in_group("Boss"):
+		modulate = Color("ff0056")
+		$hit_timer.start()
+		hp -= 3
+		if hp <= 0:
 			is_dead = true
 			visible = false
 			Global.gameOff = true

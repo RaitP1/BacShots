@@ -47,7 +47,7 @@ func _process(delta):
 					pass
 				elif result == 6:
 					#Enemy speed increased by 50
-					Global.enemySpeed += 1
+					Global.enemySpeed += .4
 				elif result == 7:
 					#Player speed decreased by 50
 					Global.playerSpeed -= 1

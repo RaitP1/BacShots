@@ -9,17 +9,18 @@ func _process(delta):
 	look_at(Global.player.global_position)
 	if Global.player != null and stun == false:
 		if Global.gameOff == false:
-			velocity = global_position.direction_to(Global.player.global_position)
+			velocity = global_position.direct ion_to(Global.player.global_position)
 		else:
 			velocity = Vector2(0, 0)
 	elif stun == true:
 		velocity = lerp(velocity, Vector2(0, 0), 0.3)
 	global_position += velocity * speed * delta
-	if hp <= 0:
-		if Global.Camera != null:
-			Global.Camera.screen_shake(30, 0.1)
-			Global.points += 10  # 10 points for killing enemy
-			queue_free()
+	if hp <= 0 and Global.Camera != null:
+		Global.Camera.screen_shake(30, 0.1)
+		Global.points += 10  # 10 points for killing enemy
+		Global.boss_alive4 = false
+		Global.rounds += 1
+		queue_free()
 
 
 func _on_hitbox_area_entered(area):
@@ -33,12 +34,6 @@ func _on_hitbox_area_entered(area):
 		$"hit_timer".start()
 		area.get_parent().queue_free()
 
-
 func _on_hit_timer_timeout() -> void:
 	modulate = Color("ffffff")
 	stun = false
-	if hp <= 0:
-		Global.rounds += 1
-		Global.boss_alive4 = false
-		if Global.Camera != null:
-			Global.Camera.screen.shake(30, 0.1)
