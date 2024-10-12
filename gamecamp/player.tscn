@@ -1,7 +1,72 @@
-[gd_scene load_steps=24 format=3 uid="uid://etu5bw682f3"]
+[gd_scene load_steps=41 format=3 uid="uid://etu5bw682f3"]
 
-[ext_resource type="Texture2D" uid="uid://d3gm3h03ep2qk" path="res://assets/player.png" id="1_anulg"]
+[ext_resource type="Texture2D" uid="uid://bhd4gmgkt30np" path="res://assets/player.png" id="1_anulg"]
+[ext_resource type="Texture2D" uid="uid://coos1hg7vpnym" path="res://assets/player_2.png" id="1_gc6cy"]
 [ext_resource type="Script" path="res://player.gd" id="2_2qioe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv3fy"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocgve"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qismu"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpvfn"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e6pj"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l6qv"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf8ud"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24vw6"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14xb3"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukwcq"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khh04"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1padl"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhgs5"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl0xa"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1mee"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4h3r"]
+atlas = ExtResource("1_gc6cy")
+region = Rect2(128, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_enaxu"]
 atlas = ExtResource("1_anulg")
@@ -81,6 +146,59 @@ region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1fndx"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv3fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocgve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qismu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpvfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e6pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l6qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf8ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24vw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14xb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukwcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khh04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1padl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhgs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl0xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1mee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4h3r")
+}],
+"loop": true,
+"name": &"death_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_enaxu")
@@ -171,7 +289,8 @@ size = Vector2(25.25, 24.375)
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1fndx")
-animation = &"idle"
+animation = &"death_animation"
+frame_progress = 0.0733955
 script = ExtResource("2_2qioe")
 
 [node name="Reload" type="Timer" parent="."]

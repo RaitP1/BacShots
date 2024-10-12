@@ -61,6 +61,8 @@ func _on_hitbox_area_entered(area):
 		hp -= 1
 		if hp == 0:
 			is_dead = true
+			anim.play("death_animations")
+			await (get_tree().create_timer(15.0).timeout)
 			visible = false
 			Global.gameOff = true
 			await (get_tree().create_timer(1.0).timeout)
