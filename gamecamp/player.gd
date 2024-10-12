@@ -1,4 +1,3 @@
-extends Sprite2D
 extends AnimatedSprite2D
 
 #uses Global.speed instead
@@ -13,6 +12,7 @@ var bullet = preload("res://bullet.tscn")
 var is_dead = false
 
 @onready var my_timer: Node = get_node("Reload")
+@onready var anim: AnimatedSprite2D = $"."
 
 @onready var aimSpot = $Aimspot
 @onready var path_follow = $Path2D/PathFollow2D
@@ -21,6 +21,7 @@ func _ready():
 	# temporary next line
 	my_timer.wait_time = Global.reloadSpeed
 	my_timer.start()
+	anim.play("idle")
 	Global.node_creation_parent = $".."
 	Global.player = self
 	Global.gameOff = false
@@ -32,6 +33,17 @@ func _process(delta):
 	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 	
+	if Input.is_action_pressed("move_right"):
+		anim.play("idle")
+	elif Input.is_action_pressed("move_left"):
+		anim.play("move_left")
+	elif Input.is_action_pressed("move_up"):
+		anim.play("move_up")
+	elif Input.is_action_pressed("move_down"):
+		anim.play("move_down")
+	else:
+		anim.play("idle")
+	
 	velocity = velocity.normalized()
 	
 	global_position.x = clamp(global_position.x, 20, 1152)	
@@ -42,7 +54,6 @@ func _process(delta):
 		global_position += Global.playerSpeed * velocity * delta
 
 	if Input.is_action_pressed("click") and Global.node_creation_parent != null and Global.canShoot == true and is_dead == false:
-		look_at(get_global_mouse_position())
 		Global.instance_node(bullet, aimSpot.global_position, Global.node_creation_parent)
 		$Reload.start()
 		Global.canShoot = false
