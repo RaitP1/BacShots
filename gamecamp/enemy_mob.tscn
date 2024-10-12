@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://des8e14yidwhp"]
+[gd_scene load_steps=33 format=3 uid="uid://des8e14yidwhp"]
 
 [ext_resource type="Texture2D" uid="uid://bprho1rud85r7" path="res://assets/deso.png" id="1_62r7i"]
 [ext_resource type="Script" path="res://enemy_mob.gd" id="2_d6ed1"]
@@ -225,6 +225,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_12oe7"]
+script/source = "extends Area2D
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwqgg"]
 size = Vector2(11, 10.5)
 
@@ -237,6 +241,7 @@ frame_progress = 0.820651
 script = ExtResource("2_d6ed1")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
+script = SubResource("GDScript_12oe7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, -2.25)
