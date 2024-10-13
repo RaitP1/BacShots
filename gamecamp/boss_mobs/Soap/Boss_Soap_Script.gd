@@ -1,15 +1,18 @@
 extends AnimatedSprite2D
 
-var speed = 75
+@onready var boss_blob: AnimatedSprite2D = $"."
+
+var speed = Global.boss_speed
 var velocity = Vector2()
-var hp = 5
+var hp = Global.boss_hp
 var stun = false
 
 func _process(delta):
-	look_at(Global.player.global_position)
+#	look_at(Global.player.global_position)
 	if Global.player != null and stun == false:
 		if Global.gameOff == false:
-			velocity = global_position.direct ion_to(Global.player.global_position)
+			boss_blob.play("movement")
+			velocity = global_position.direction_to(Global.player.global_position)
 		else:
 			velocity = Vector2(0, 0)
 	elif stun == true:
@@ -20,6 +23,8 @@ func _process(delta):
 		Global.points += 10  # 10 points for killing enemy
 		Global.boss_alive4 = false
 		Global.rounds += 1
+		Global.boss_num += 1
+		Global.boss_name = ""
 		queue_free()
 
 

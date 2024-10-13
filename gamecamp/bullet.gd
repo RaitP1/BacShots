@@ -9,7 +9,6 @@ func _process(delta):
 	if look_once == true:
 		look_at(get_global_mouse_position())
 		look_once = false
-		
 	global_position += velocity.rotated(rotation) * speed * delta
 
 

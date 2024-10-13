@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsc8ctgdltjl7"]
+
+[ext_resource type="Texture2D" uid="uid://g5egvvypv30k" path="res://boss_mobs/Blob/blob.png" id="1_ifxev"]
+[ext_resource type="Script" path="res://boss_mobs/Soap/Boss_Soap_Script.gd" id="2_al3bw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl53g"]
+atlas = ExtResource("1_ifxev")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6jfx"]
+atlas = ExtResource("1_ifxev")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n65xs"]
+atlas = ExtResource("1_ifxev")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o0iq"]
+atlas = ExtResource("1_ifxev")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qweh3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl53g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6jfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n65xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o0iq")
+}],
+"loop": true,
+"name": &"movement",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24ojt"]
+radius = 7.61905
+height = 25.1429
+
+[node name="Boss_blob" type="AnimatedSprite2D" groups=["Boss"]]
+modulate = Color(1, 1, 0.0509804, 1)
+texture_filter = 1
+scale = Vector2(5.25, 5.25)
+sprite_frames = SubResource("SpriteFrames_qweh3")
+animation = &"movement"
+frame_progress = 0.290175
+script = ExtResource("2_al3bw")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Boss"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.571429, -0.380952)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_24ojt")
+
+[node name="hit_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]

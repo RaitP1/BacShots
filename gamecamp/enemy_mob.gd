@@ -22,8 +22,6 @@ func _process(delta):
 		global_position += velocity * Global.enemySpeed * delta
 	else:
 		if Global.Camera != null:
-			Global.points += 10  # 10 points for killing enemy
-			#here question mark
 			var qChance: int = randi_range(1, 1)
 			if qChance == 1:
 				var result: int = randi_range(1, 7)
