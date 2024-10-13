@@ -71,7 +71,7 @@ func _on_hit_indicator_timeout():
 func die():
 	dead = true
 	if Global.Camera != null:
-		Global.points += 10
+		Global.points += 1
 	enemy.play("death_animation")
 	await get_tree().create_timer(.8).timeout
 	queue_free()

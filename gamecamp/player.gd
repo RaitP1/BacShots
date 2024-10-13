@@ -11,13 +11,14 @@ var is_dead = false
 var timer_started = false
 
 @onready var anim: AnimatedSprite2D = $"."
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 @onready var aimSpot = $Aimspot
 @onready var path_follow = %PathFollow2D
 @onready var shoot_timer = Timer.new()
 
 func _ready():	
-	anim.play("idle")
+	progress_bar.value = hp
 	Global.node_creation_parent = $".."
 	Global.player = self
 	Global.gameOff = false
@@ -29,13 +30,13 @@ func _exit_tree():
 	Global.player = null
 	
 func _process(delta):
-	
+	progress_bar.value = hp
 	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 	
 	if is_dead == false:
 		if Input.is_action_pressed("move_right"):
-			anim.play("idle")
+			anim.play("move_right")
 		elif Input.is_action_pressed("move_left"):
 			anim.play("move_left")
 		elif Input.is_action_pressed("move_up"):
@@ -44,8 +45,6 @@ func _process(delta):
 			anim.play("move_down")
 		else:
 			anim.play("idle")
-	else:
-		anim.play("death_animation")
 		
 	
 	global_position.x = clamp(global_position.x, 20, 3232)	
@@ -89,6 +88,9 @@ func _on_hitbox_area_entered(area):
 		hp -= 1
 		if hp <= 0:
 			is_dead = true
+			progress_bar.hide()
+			anim.play("death_animation")
+			await (get_tree().create_timer(3.0).timeout)
 			visible = false
 			Global.gameOff = true
 			await (get_tree().create_timer(1.0).timeout)
@@ -96,9 +98,12 @@ func _on_hitbox_area_entered(area):
 	elif area.is_in_group("Boss"):
 		modulate = Color("ff0056")
 		$hit_timer.start()
-		hp -= Global.boss_dmg
+		hp -= 3
 		if hp <= 0:
 			is_dead = true
+			progress_bar.hide()
+			anim.play("death_animation")
+			await (get_tree().create_timer(3.0).timeout)
 			visible = false
 			Global.gameOff = true
 			await (get_tree().create_timer(1.0).timeout)

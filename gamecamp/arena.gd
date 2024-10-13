@@ -73,7 +73,7 @@ func _on_wave_timer_timeout():
 		if Global.boss_alive4 == false:
 			call_zombie_wave(round)
 	
-	round += 19
+	round += 1
 	
 	# Adjust the timer for the next wave
 	var next_wave_time = 10.0 + log(round)  # Adjust timing as needed

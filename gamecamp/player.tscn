@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://etu5bw682f3"]
+[gd_scene load_steps=43 format=3 uid="uid://etu5bw682f3"]
 
 [ext_resource type="Texture2D" uid="uid://blixydrjiqqs1" path="res://player.png" id="1_anulg"]
 [ext_resource type="Texture2D" uid="uid://coos1hg7vpnym" path="res://assets/player_2.png" id="1_fbcuo"]
@@ -285,12 +285,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrrxn"]
 size = Vector2(13, 10)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gcg0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i170k"]
+bg_color = Color(0.982636, 0.00111382, 0.000611261, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="AnimatedSprite2D"]
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1fndx")
 animation = &"death_animation"
-frame_progress = 0.0016817
+frame_progress = 0.868001
 script = ExtResource("2_2qioe")
 
 [node name="Reload" type="Timer" parent="."]
@@ -310,8 +326,20 @@ wait_time = 0.1
 one_shot = true
 
 [node name="shoot_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 60.0
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+clip_contents = true
+offset_left = -8.0
+offset_top = 4.66666
+offset_right = 6.0
+offset_bottom = 7.66666
+theme_override_styles/background = SubResource("StyleBoxFlat_3gcg0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i170k")
+max_value = 3.0
+value = 2.0
+show_percentage = false
 
 [connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

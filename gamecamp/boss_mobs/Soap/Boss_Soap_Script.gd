@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 
 @onready var boss_blob: AnimatedSprite2D = $"."
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 var speed = Global.boss_speed
 var velocity = Vector2()
@@ -10,6 +11,8 @@ var dashing = false
 
 func _process(delta):
 #	look_at(Global.player.global_position)
+	progress_bar.max_value = Global.boss_hp
+	progress_bar.value = hp
 	if Global.player != null and stun == false:
 		if Global.gameOff == false:
 			boss_blob.play("movement")
@@ -17,23 +20,23 @@ func _process(delta):
 		else:
 			velocity = Vector2(0, 0)
 	elif stun == true:
-    if global_position.distance_to(Global.player.global_position) < 100:
-        start_dash()
-    if dashing:
-        velocity = velocity.normalized() * 500  # Increase the speed for dash
-        if global_position.distance_to(Global.player.global_position) > 200:  # End dash when far enough
-            dashing = false
 		velocity = lerp(velocity, Vector2(0, 0), 0.3)
 	global_position += velocity * speed * delta
+	if global_position.distance_to(Global.player.global_position) < 100:
+		start_dash()
+	if dashing:
+		velocity = velocity.normalized() * 500  # Increase the speed for dash
+		if global_position.distance_to(Global.player.global_position) > 200:  # End dash when far enough
+			dashing = false
 	if hp <= 0 and Global.Camera != null:
 		Global.Camera.screen_shake(30, 0.1)
-		Global.points += 10  # 10 points for killing enemy
+		Global.points += 10000  # 10 points for killing enemy
 		Global.boss_alive4 = false
 		Global.rounds += 1
 		Global.boss_num += 1
 		Global.boss_name = ""
-		Global.hp = 10
-		Global.speed = 150
+		Global.boss_hp = 10
+		Global.boss_speed = 150
 		queue_free()
 
 
@@ -53,4 +56,4 @@ func _on_hit_timer_timeout() -> void:
 	stun = false
 
 func start_dash():
-    dashing = true
+	dashing = true

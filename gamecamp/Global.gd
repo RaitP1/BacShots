@@ -18,7 +18,6 @@ var boss_alive3 = false
 var boss_alive4 = false
 var boss_hp = 10
 var boss_speed: int = 150
-var boss_dmg = 3
 var rounds = 4
 var boss_num = 1
 var boss_name = ""

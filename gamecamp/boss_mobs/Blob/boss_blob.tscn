@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsc8ctgdltjl7"]
+[gd_scene load_steps=11 format=3 uid="uid://dsc8ctgdltjl7"]
 
 [ext_resource type="Texture2D" uid="uid://g5egvvypv30k" path="res://boss_mobs/Blob/blob.png" id="1_ifxev"]
 [ext_resource type="Script" path="res://boss_mobs/Soap/Boss_Soap_Script.gd" id="2_al3bw"]
@@ -43,13 +43,28 @@ animations = [{
 radius = 7.61905
 height = 25.1429
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6wpi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy8mn"]
+bg_color = Color(0.982636, 0.00111382, 0.000611261, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [node name="Boss_blob" type="AnimatedSprite2D" groups=["Boss"]]
-modulate = Color(1, 1, 0.0509804, 1)
 texture_filter = 1
 scale = Vector2(5.25, 5.25)
 sprite_frames = SubResource("SpriteFrames_qweh3")
 animation = &"movement"
-frame_progress = 0.339593
+frame_progress = 0.816093
 script = ExtResource("2_al3bw")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Boss"]]
@@ -62,6 +77,19 @@ shape = SubResource("CapsuleShape2D_24ojt")
 [node name="hit_timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+clip_contents = true
+offset_left = -9.95238
+offset_top = 9.80952
+offset_right = 12.0476
+offset_bottom = 12.8095
+theme_override_styles/background = SubResource("StyleBoxFlat_w6wpi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fy8mn")
+max_value = 3.0
+value = 2.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]
