@@ -1,14 +1,13 @@
 extends AnimatedSprite2D
 
-var speed = Global.playerSpeed
 var velocity = Vector2()
-var hp = 3
 var bullet = preload("res://bullet.tscn")
 var i = 0
 
 var can_shoot = true
 var is_dead = false
 var timer_started = false
+var screen_shake = false
 
 @onready var anim: AnimatedSprite2D = $"."
 @onready var progress_bar: ProgressBar = $ProgressBar
@@ -18,7 +17,7 @@ var timer_started = false
 @onready var shoot_timer = Timer.new()
 
 func _ready():	
-	progress_bar.value = hp
+	progress_bar.value = Global.hp
 	Global.node_creation_parent = $".."
 	Global.player = self
 	Global.gameOff = false
@@ -30,7 +29,7 @@ func _exit_tree():
 	Global.player = null
 	
 func _process(delta):
-	progress_bar.value = hp
+	progress_bar.value = Global.hp
 	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 	
@@ -53,15 +52,29 @@ func _process(delta):
 	
 	if Global.boss_name == "Blob":
 		velocity.x = int(Input.is_action_pressed("move_left")) - int(Input.is_action_pressed("move_right"))
+		Global.playerSpeed = 300
 	
 	if Global.boss_name == "Sponge":
 		velocity.x = int(Input.is_action_pressed("move_left")) - int(Input.is_action_pressed("move_right"))
 		velocity.y = int(Input.is_action_pressed("move_up")) - int(Input.is_action_pressed("move_down"))
+		Global.playerSpeed = 300
+		if timer_started == false:
+			timer_started = true
+			Global.Camera.screen_shake(15, 2)
 	
+	if Global.boss_name == "Sprei":
+		velocity.x = int(Input.is_action_pressed("move_left")) - int(Input.is_action_pressed("move_right"))
+		velocity.y = int(Input.is_action_pressed("move_up")) - int(Input.is_action_pressed("move_down"))
+		Global.playerSpeed = 300
+		if timer_started == false:
+			timer_started = true
+			Global.Camera.screen_shake(15, 2)
+		
+
 	if Global.boss_name == "Soap":
 		velocity.x = int(Input.is_action_pressed("move_left")) - int(Input.is_action_pressed("move_right"))
 		velocity.y = int(Input.is_action_pressed("move_up")) - int(Input.is_action_pressed("move_down"))
-		speed = 300
+		Global.playerSpeed = 300
 		if not timer_started:  # Use the boolean flag
 			timer_started = true
 			can_shoot = false
@@ -70,7 +83,7 @@ func _process(delta):
 		
 	velocity = velocity.normalized()
 	if is_dead == false:
-		global_position += speed * velocity * delta
+		global_position += Global.playerSpeed * velocity * delta
 	
 	if Input.is_action_pressed("click") and Global.node_creation_parent != null and can_shoot == true and is_dead == false:
 		Global.instance_node(bullet, aimSpot.global_position, Global.node_creation_parent)
@@ -85,8 +98,8 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("Enemy"):
 		modulate = Color("ff0056")
 		$hit_timer.start()
-		hp -= 1
-		if hp <= 0:
+		Global.hp -= 1
+		if Global.hp <= 0:
 			is_dead = true
 			progress_bar.hide()
 			anim.play("death_animation")
@@ -94,12 +107,13 @@ func _on_hitbox_area_entered(area):
 			visible = false
 			Global.gameOff = true
 			await (get_tree().create_timer(1.0).timeout)
-			get_tree().reload_current_scene()
+			get_tree().change_scene_to_file("res://end/end.tscn")
+
 	elif area.is_in_group("Boss"):
 		modulate = Color("ff0056")
 		$hit_timer.start()
-		hp -= 3
-		if hp <= 0:
+		Global.hp -= 3
+		if Global.hp <= 0:
 			is_dead = true
 			progress_bar.hide()
 			anim.play("death_animation")
@@ -107,7 +121,7 @@ func _on_hitbox_area_entered(area):
 			visible = false
 			Global.gameOff = true
 			await (get_tree().create_timer(1.0).timeout)
-			get_tree().reload_current_scene()
+			get_tree().change_scene_to_file("res://end/end.tscn")
 
 
 func _on_hit_timer_timeout() -> void:

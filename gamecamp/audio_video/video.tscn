@@ -1,10 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://5hm3pfye5fjc"]
 
-[ext_resource type="Script" path="res://audio_video/video.gd" id="1_n7gok"]
-[ext_resource type="VideoStream" path="res://audio_video/game_intro.ogv" id="2_urj6f"]
+[sub_resource type="GDScript" id="GDScript_vi70m"]
+script/source = "extends Node2D
+
+func _on_video_stream_player_finished() -> void:
+	get_tree().change_scene_to_file(\"res://main_menu/main_menu.tscn\")
+
+func _on_skip_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://main_menu/main_menu.tscn\")
+"
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_jb2i5"]
+file = "res://audio_video/game_intro.ogv"
 
 [node name="video" type="Node2D"]
-script = ExtResource("1_n7gok")
+script = SubResource("GDScript_vi70m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -14,7 +24,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 1154.0
 offset_bottom = 642.0
-stream = ExtResource("2_urj6f")
+stream = SubResource("VideoStreamTheora_jb2i5")
 autoplay = true
 expand = true
 

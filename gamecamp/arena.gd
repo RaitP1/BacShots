@@ -59,11 +59,14 @@ func _on_wave_timer_timeout():
 		if Global.boss_num == 1:
 			spawn_blob_boss()
 			Global.boss_name = "Blob"
+			var song : AudioStream = load("res://audio_video/1_boss_theme.mp3")
+			$AudioStreamPlayer.set_stream(song)
+			$AudioStreamPlayer.play()
 		if Global.boss_num == 2:
-			spawn_blob_boss()
+			spawn_sponge_boss()	
 			Global.boss_name = "Sponge"
 		if Global.boss_num == 3:
-			spawn_blob_boss()
+			spawn_sprei_boss()
 			Global.boss_name = "Sprei"
 		if Global.boss_num == 4:
 			spawn_soap_boss()
@@ -72,8 +75,7 @@ func _on_wave_timer_timeout():
 	else:
 		if Global.boss_alive4 == false:
 			call_zombie_wave(round)
-	
-	round += 1
+	round += 9
 	
 	# Adjust the timer for the next wave
 	var next_wave_time = 10.0 + log(round)  # Adjust timing as needed

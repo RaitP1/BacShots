@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbour1dws7v76"]
+[gd_scene load_steps=5 format=3 uid="uid://cbour1dws7v76"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_y5ksx"]
 [ext_resource type="AudioStream" uid="uid://d2328x1ikcp7a" path="res://audio_video/main_menu_theme .mp3" id="2_fbq2w"]
+[ext_resource type="AudioStream" uid="uid://e3mupq4k7iy1" path="res://main_menu/asmr.mp3" id="3_mcs2j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbgbs"]
 bg_color = Color(0.799153, 0.529388, 0.327656, 1)
@@ -35,8 +36,16 @@ theme_override_colors/icon_hover_color = Color(0.785889, 0.18183, 0.170743, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.941176, 0, 0, 1)
 text = "PLAY"
 
+[node name="asmr" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ASMR"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fbq2w")
 autoplay = true
 
+[node name="Asmr" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mcs2j")
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/asmr" to="." method="_on_asmr_pressed"]

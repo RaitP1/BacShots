@@ -1,8 +1,9 @@
-[gd_scene load_steps=43 format=3 uid="uid://etu5bw682f3"]
+[gd_scene load_steps=44 format=3 uid="uid://etu5bw682f3"]
 
 [ext_resource type="Texture2D" uid="uid://blixydrjiqqs1" path="res://player.png" id="1_anulg"]
 [ext_resource type="Texture2D" uid="uid://coos1hg7vpnym" path="res://assets/player_2.png" id="1_fbcuo"]
 [ext_resource type="Script" path="res://player.gd" id="2_2qioe"]
+[ext_resource type="Script" path="res://reload.gd" id="4_pjfba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5gax"]
 atlas = ExtResource("1_fbcuo")
@@ -312,6 +313,7 @@ script = ExtResource("2_2qioe")
 [node name="Reload" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+script = ExtResource("4_pjfba")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player"]]
 

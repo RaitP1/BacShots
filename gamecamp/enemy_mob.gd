@@ -22,33 +22,51 @@ func _process(delta):
 		global_position += velocity * Global.enemySpeed * delta
 	else:
 		if Global.Camera != null:
-			var qChance: int = randi_range(1, 1)
-			if qChance == 1:
-				var result: int = randi_range(1, 7)
-				if result == 1:
-					# Speed up
-					Global.playerSpeed += 50 
-				elif result == 2:
-					#Double damage
-					dmg *= 5
-				elif result == 3:
-					#2x fire rate
-					Global.reloadSpeed /= 2
-				elif result == 4:
-					#Disable gun for 10s
-					Global.canShoot = false
-					# await (10seconds)
-					await get_tree().create_timer(10.0).timeout
-					Global.canShoot = true
-				elif result == 5:
-					#Inverted movement for 10s
-					pass
-				elif result == 6:
-					#Enemy speed increased by 50
-					Global.enemySpeed += .4
-				elif result == 7:
-					#Player speed decreased by 50
-					Global.playerSpeed -= 1
+			
+			var result: int = randi_range(1, 7)
+			var result2: int = randi_range(1, 100)
+			if result2 == 1000 and Global.hp < 3:
+				#Health added
+				Global.hp += 1
+				Global.effectName = "Health++"
+				await get_tree().create_timer(5.0).timeout
+				Global.effectName = ""
+			if result == 1:
+				# Speed up
+				Global.playerSpeed += 50
+				Global.effectName = "Speed++"
+				await get_tree().create_timer(5.0).timeout
+				Global.effectName = ""
+			elif result == 2:
+				#Double damage
+				dmg *= 5
+				Global.effectName = "Damage++"
+				await get_tree().create_timer(5.0).timeout
+				Global.effectName = ""
+			elif result == 3:
+				#2x fire rate
+				Global.reloadSpeed *= 0.95
+				Global.effectName = "Fire rate++"
+				await get_tree().create_timer(5.0).timeout
+				Global.effectName = ""
+			elif result == 4:
+				#Disable gun for 10s
+				#Global.canShoot = false
+				# await (10seconds)
+				#Global.effectName = "Gun disabled"
+				#await get_tree().create_timer(10.0).timeout
+				#Global.canShoot = true
+				#Global.effectName = "Gun enabled"
+				pass
+			elif result == 5:
+				#Inverted movement for 10s
+				pass
+			elif result == 6:
+				#Enemy speed increased by 50
+				Global.enemySpeed += 6
+			elif result == 7:
+				#Player speed decreased by 50
+				Global.playerSpeed -= 1
 			die()
 
 var dmg: int = 1

@@ -2,6 +2,9 @@ extends AnimatedSprite2D
 
 @onready var boss_blob: AnimatedSprite2D = $"."
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var boss_sprei: AnimatedSprite2D = $"."
+@onready var boss_soap: AnimatedSprite2D = $"."
+@onready var boss_sponge: AnimatedSprite2D = $"."
 
 var speed = Global.boss_speed
 var velocity = Vector2()
@@ -10,17 +13,24 @@ var stun = false
 var dashing = false
 
 func _process(delta):
-#	look_at(Global.player.global_position)
-	progress_bar.max_value = Global.boss_hp
-	progress_bar.value = hp
 	if Global.player != null and stun == false:
 		if Global.gameOff == false:
-			boss_blob.play("movement")
-			velocity = global_position.direction_to(Global.player.global_position)
+			if Global.boss_name == "Blob":
+				boss_blob.play("movement")
+				velocity = global_position.direction_to(Global.player.global_position)
+				
+			elif Global.boss_name == "Sponge":
+				boss_sponge.play("movement")
+				velocity = global_position.direction_to(Global.player.global_position)
+			
+			elif Global.boss_name == "Sprei":
+				boss_sprei.play("movement")
+				velocity = global_position.direction_to(Global.player.global_position)
+			elif Global.boss_name == "Soap":
+				boss_soap.play("movement")
+				velocity = global_position.direction_to(Global.player.global_position)
 		else:
 			velocity = Vector2(0, 0)
-	elif stun == true:
-		velocity = lerp(velocity, Vector2(0, 0), 0.3)
 	global_position += velocity * speed * delta
 	if global_position.distance_to(Global.player.global_position) < 100:
 		start_dash()
@@ -37,15 +47,15 @@ func _process(delta):
 		Global.boss_name = ""
 		Global.boss_hp = 10
 		Global.boss_speed = 150
+		Global.Camera.screen_shake(0, 0)
 		queue_free()
 
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("player"):
-		queue_free()
+		hp -= 1
 	if area.is_in_group("enemy_damager") and stun == false:
 		modulate = Color("ff0056")
-		velocity = -velocity * 6
 		hp -= 1
 		stun = true
 		$"hit_timer".start()

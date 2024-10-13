@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dbhogmumb8dq5"]
+[gd_scene load_steps=36 format=3 uid="uid://dbhogmumb8dq5"]
 
 [ext_resource type="Texture2D" uid="uid://dkwpxvrecdat4" path="res://boss_mobs/Soap/soap.png" id="1_ox8so"]
 [ext_resource type="Script" path="res://boss_mobs/Soap/Boss_Soap_Script.gd" id="2_02gbn"]
@@ -75,26 +75,6 @@ region = Rect2(256, 128, 64, 64)
 atlas = ExtResource("1_ox8so")
 region = Rect2(0, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iyqc2"]
-atlas = ExtResource("1_ox8so")
-region = Rect2(64, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_euek2"]
-atlas = ExtResource("1_ox8so")
-region = Rect2(128, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4x8bh"]
-atlas = ExtResource("1_ox8so")
-region = Rect2(192, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_knrb0"]
-atlas = ExtResource("1_ox8so")
-region = Rect2(256, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mc73a"]
-atlas = ExtResource("1_ox8so")
-region = Rect2(0, 256, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_aniuf"]
 atlas = ExtResource("1_ox8so")
 region = Rect2(64, 0, 64, 64)
@@ -118,6 +98,26 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1jx7"]
 atlas = ExtResource("1_ox8so")
 region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyqc2"]
+atlas = ExtResource("1_ox8so")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euek2"]
+atlas = ExtResource("1_ox8so")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x8bh"]
+atlas = ExtResource("1_ox8so")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knrb0"]
+atlas = ExtResource("1_ox8so")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc73a"]
+atlas = ExtResource("1_ox8so")
+region = Rect2(0, 256, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qweh3"]
 animations = [{
@@ -192,26 +192,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iyqc2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_euek2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4x8bh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_knrb0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mc73a")
-}],
-"loop": true,
-"name": &"move-right",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_aniuf")
 }, {
 "duration": 1.0,
@@ -232,27 +212,78 @@ animations = [{
 "loop": true,
 "name": &"move-up",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyqc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x8bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knrb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc73a")
+}],
+"loop": true,
+"name": &"movement",
+"speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pirrg"]
-radius = 23.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dyeb4"]
+radius = 7.99996
+height = 34.6665
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6vij"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebb68"]
+bg_color = Color(0.982636, 0.00111382, 0.000611261, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [node name="Boss_Soap" type="AnimatedSprite2D" groups=["Boss"]]
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_qweh3")
-animation = &"lightning"
-frame_progress = 0.886101
+animation = &"movement"
 script = ExtResource("2_02gbn")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Boss"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_pirrg")
+position = Vector2(-4.65661e-10, 1.33333)
+rotation = -1.57411
+shape = SubResource("CapsuleShape2D_dyeb4")
 
 [node name="hit_timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+clip_contents = true
+offset_left = -11.2857
+offset_top = 13.8095
+offset_right = 10.7143
+offset_bottom = 16.8095
+theme_override_styles/background = SubResource("StyleBoxFlat_c6vij")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ebb68")
+max_value = 3.0
+value = 2.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="hit_timer" to="." method="_on_hit_timer_timeout"]
