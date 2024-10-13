@@ -33,16 +33,19 @@ func _process(delta):
 	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 	
-	if Input.is_action_pressed("move_right"):
-		anim.play("idle")
-	elif Input.is_action_pressed("move_left"):
-		anim.play("move_left")
-	elif Input.is_action_pressed("move_up"):
-		anim.play("move_up")
-	elif Input.is_action_pressed("move_down"):
-		anim.play("move_down")
+	if is_dead == false:
+		if Input.is_action_pressed("move_right"):
+			anim.play("idle")
+		elif Input.is_action_pressed("move_left"):
+			anim.play("move_left")
+		elif Input.is_action_pressed("move_up"):
+			anim.play("move_up")
+		elif Input.is_action_pressed("move_down"):
+			anim.play("move_down")
+		else:
+			anim.play("idle")
 	else:
-		anim.play("idle")
+		anim.play("death_animation")
 		
 	
 	global_position.x = clamp(global_position.x, 20, 3232)	

@@ -290,7 +290,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1fndx")
 animation = &"death_animation"
-frame_progress = 0.49693
+frame_progress = 0.0016817
 script = ExtResource("2_2qioe")
 
 [node name="Reload" type="Timer" parent="."]

@@ -59,10 +59,10 @@ func _on_wave_timer_timeout():
 			Global.boss_name = "Blob"
 		if Global.boss_num == 2:
 			spawn_blob_boss()
-			Global.boss_name = "Blob"
+			Global.boss_name = "Sponge"
 		if Global.boss_num == 3:
 			spawn_blob_boss()
-			Global.boss_name = "Blob"
+			Global.boss_name = "Sprei"
 		if Global.boss_num == 4:
 			spawn_soap_boss()
 			Global.boss_name = "Soap"
