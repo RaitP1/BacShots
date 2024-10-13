@@ -49,7 +49,7 @@ texture_filter = 1
 scale = Vector2(5.25, 5.25)
 sprite_frames = SubResource("SpriteFrames_qweh3")
 animation = &"movement"
-frame_progress = 0.290175
+frame_progress = 0.339593
 script = ExtResource("2_al3bw")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Boss"]]

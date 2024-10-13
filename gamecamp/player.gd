@@ -96,7 +96,7 @@ func _on_hitbox_area_entered(area):
 	elif area.is_in_group("Boss"):
 		modulate = Color("ff0056")
 		$hit_timer.start()
-		hp -= 3
+		hp -= Global.boss_dmg
 		if hp <= 0:
 			is_dead = true
 			visible = false

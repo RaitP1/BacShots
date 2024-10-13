@@ -54,6 +54,8 @@ func _on_wave_timer_timeout():
 	print("Wave ", round, " starting!")
 	print(Global.boss_name)
 	if round % 5 == 0 and not boss_spawned:
+		Global.boss_hp *= Global.boss_num
+		Global.boss_speed += 25 * Global.boss_num
 		if Global.boss_num == 1:
 			spawn_blob_boss()
 			Global.boss_name = "Blob"
@@ -71,7 +73,7 @@ func _on_wave_timer_timeout():
 		if Global.boss_alive4 == false:
 			call_zombie_wave(round)
 	
-	round += 9
+	round += 19
 	
 	# Adjust the timer for the next wave
 	var next_wave_time = 10.0 + log(round)  # Adjust timing as needed
